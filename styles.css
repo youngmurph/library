@@ -1,4 +1,78 @@
+@font-face {
+    font-family: 'poetsenoneregular';
+    src: url('fonts/poetsenone-regular-webfont.woff2') format('woff2'),
+         url('fonts/poetsenone-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'source_sans_3XLtIt';
+    src: url('fonts/sourcesans3-italic-variablefont_wght-webfont.woff2') format('woff2'),
+         url('fonts/sourcesans3-italic-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'source_sans_3extralight';
+    src: url('fonts/sourcesans3-variablefont_wght-webfont.woff2') format('woff2'),
+         url('fonts/sourcesans3-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 * {
     margin: 0;
     padding: 0;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #e7e5e4;
+}
+
+.header {
+    font-family: 'poetsenoneregular';
+    font-size: 70px;
+    font-weight: normal;
+    padding-top: 50px;
+}
+
+.add-book {
+    margin-top: 50px;
+    height: 200px;
+    width: 400px;
+    background-color: #d6d3d1;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.welcome {
+    font-family: 'source_sans_3extralight';
+    text-align: center;
+    margin: 50px 10px 0px 10px;
+}
+
+button {
+    margin-bottom: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    cursor: pointer;
+    border-radius: 100px;
+    width: 80px;
+    height: 35px;
+}
+
+button:hover {
+    border: 1px solid #0096ff;
+}
+
