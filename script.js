@@ -43,11 +43,21 @@ function addBook() {
         body.appendChild(library);
     };
 
+    let newBook = new Book(author, title, pages, read);
+
     let card = document.createElement("div");
     card.setAttribute("class", "card");
     library.appendChild(card);
 
-    let newBook = new Book(author, title, pages, read);
+    let markRead = document.createElement("button");
+    markRead.setAttribute("class", "marked");
+    markRead.textContent = 'Read';
+    card.appendChild(markRead);
+
+    let remove = document.createElement("button");
+    remove.setAttribute("class", "remove");
+    remove.textContent = 'Remove';
+    card.appendChild(remove);
 
     myLibrary.push(newBook);
 };
