@@ -118,7 +118,11 @@ function addBook() {
     let check = document.getElementById("check-sec");
 
     markRead.addEventListener("click", () => {
-        check.textContent = 'Yes';
+        if (check.textContent === 'No') {
+            check.textContent = 'Yes';
+        } else {
+            check.textContent = 'No';
+        };
     });
 
     remove.addEventListener("click", () => {
