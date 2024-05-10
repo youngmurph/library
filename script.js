@@ -3,6 +3,7 @@ const dialog = document.querySelector("dialog");
 const closeBtn = document.getElementById("cancel-button");
 const submitBtn = document.getElementById("submit-button");
 const body = document.querySelector("body");
+const marked = document.getElementById("marked");
 
 addBtn.addEventListener("click", () => {
     dialog.showModal();
@@ -14,7 +15,7 @@ closeBtn.addEventListener("click", () => {
 
 submitBtn.addEventListener("click", () => {
     addBook();
-})
+});
 
 const myLibrary = [];
 
@@ -31,12 +32,6 @@ function addBook() {
     let pages = document.getElementById('pages').value;
     let read = document.querySelector('#read');
 
-    if (read.checked) {
-        read = 'Read';
-    } else {
-        read = 'Unread';
-    };
-
     if (!document.getElementById("library")) {
         let library = document.createElement("div");
         library.setAttribute("id", "library");
@@ -51,35 +46,68 @@ function addBook() {
 
     let authLine = document.createElement("p");
     authLine.setAttribute("class", "modal-text");
-    authLine.textContent = 'Author: ';
+    authLine.textContent = `Author: `;
     let titleLine = document.createElement("p");
     titleLine.setAttribute("class", "modal-text");
-    titleLine.textContent = 'Title: ';
+    titleLine.textContent = `Title: `;
     let pagesLine = document.createElement("p");
     pagesLine.setAttribute("class", "modal-text");
-    pagesLine.textContent = 'Pages: ';
+    pagesLine.textContent = `Pages: `;
     let checkLine = document.createElement("p");
     checkLine.setAttribute("class", "modal-text");
-    checkLine.textContent = 'Read: ';
+    checkLine.textContent = `Read: `;
 
-    let details = document.createElement("div");
+    let authSec = document.createElement("p");
+    authSec.setAttribute("class", "modal-text");
+    authSec.textContent = `${author}`;
+    let titleSec = document.createElement("p");
+    titleSec.setAttribute("class", "modal-text");
+    titleSec.textContent = `${title}`;
+    let pagesSec = document.createElement("p");
+    pagesSec.setAttribute("class", "modal-text");
+    pagesSec.textContent = `${pages}`;
+
+    let checkSec = document.createElement("p");
+    checkSec.setAttribute("class", "modal-text");
+    
+    if (read.checked) {
+        checkSec.textContent = 'Yes';
+    } else {
+        checkSec.textContent = 'No';
+    };
+
+    const details = document.createElement("div");
     details.setAttribute("class", "modal-details");
 
-    details.appendChild(authLine);
-    details.appendChild(titleLine);
-    details.appendChild(pagesLine);
-    details.appendChild(checkLine);
+    const right = document.createElement("div");
+    right.setAttribute("class", "right");
+
+    const left = document.createElement("div");
+    left.setAttribute("class", "left");
+
+    left.appendChild(authLine);
+    left.appendChild(titleLine);
+    left.appendChild(pagesLine);
+    left.appendChild(checkLine);
+
+    right.appendChild(authSec);
+    right.appendChild(titleSec);
+    right.appendChild(pagesSec);
+    right.appendChild(checkSec);
+
+    details.appendChild(left);
+    details.appendChild(right);
 
     let btnDiv = document.createElement("div");
     btnDiv.setAttribute("class", "btn-div");
 
     let markRead = document.createElement("button");
-    markRead.setAttribute("class", "marked");
+    markRead.setAttribute("id", "marked");
     markRead.textContent = 'Read';
     btnDiv.appendChild(markRead);
 
     let remove = document.createElement("button");
-    remove.setAttribute("class", "remove");
+    remove.setAttribute("id", "remove");
     remove.textContent = 'Remove';
     btnDiv.appendChild(remove);
 
@@ -88,3 +116,4 @@ function addBook() {
 
     myLibrary.push(newBook);
 };
+

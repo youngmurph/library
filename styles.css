@@ -87,6 +87,7 @@ dialog {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;;
     max-height: 400px;
     min-width: 400px;
     max-width: 800px;
@@ -98,7 +99,7 @@ dialog {
 .card {
     margin: 20px;
     height: 200px;
-    width: 200px;
+    min-width: 300px;
     border-radius: 8px;
     background-color: whitesmoke;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
@@ -106,18 +107,37 @@ dialog {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    flex: 1;
 }
 
 .modal-details {
     font-family: 'source_sans_3extralight';
     padding: 2px;
-    padding-top: 30px;
-    padding-right: 100px;
+    height: 150px;
+    width: 300px;
+    padding-top: 25px;
     line-height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .btnDiv {
     margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.left, .right {
+    max-height: 200px;
+}
+
+.left {
+    width: 25%;
+    padding-left: 30px;
+}
+
+.right {
+    width: 75%;
 }
 
 form {
@@ -159,5 +179,16 @@ button:hover {
     border: 1px solid #0096ff;
 }
 
+#marked, #remove {
+    background-color: #f8f9fa;
+    border: 1px solid #f8f9fa;
+    cursor: pointer;
+    width: 80px;
+    height: 35px;
+}
+
+#marked:hover, #remove:hover {
+    border: 1px solid #0096ff;
+}
 
 
