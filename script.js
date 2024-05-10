@@ -57,13 +57,13 @@ function addBook() {
     checkLine.textContent = `Read: `;
 
     let authSec = document.createElement("p");
-    authSec.setAttribute("class", "modal-text");
+    authSec.setAttribute("class", "answer-text");
     authSec.textContent = `${author}`;
     let titleSec = document.createElement("p");
-    titleSec.setAttribute("class", "modal-text");
+    titleSec.setAttribute("class", "answer-text");
     titleSec.textContent = `${title}`;
     let pagesSec = document.createElement("p");
-    pagesSec.setAttribute("class", "modal-text");
+    pagesSec.setAttribute("class", "answer-text");
     pagesSec.textContent = `${pages}`;
 
     let checkSec = document.createElement("p");
@@ -118,11 +118,14 @@ function addBook() {
     let check = document.getElementById("check-sec");
 
     markRead.addEventListener("click", () => {
-        if (check.textContent === 'No') {
-            check.textContent = 'Yes';
+        if (newBook.read === 'No') {
+            newBook.read = 'Yes';
         } else {
-            check.textContent = 'No';
+            newBook.read = 'No';
         };
+
+        check.textContent = newBook.read;
+
     });
 
     remove.addEventListener("click", () => {
