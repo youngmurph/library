@@ -3,7 +3,6 @@ const dialog = document.querySelector("dialog");
 const closeBtn = document.getElementById("cancel-button");
 const submitBtn = document.getElementById("submit-button");
 const body = document.querySelector("body");
-const marked = document.getElementById("marked");
 
 addBtn.addEventListener("click", () => {
     dialog.showModal();
@@ -68,7 +67,7 @@ function addBook() {
     pagesSec.textContent = `${pages}`;
 
     let checkSec = document.createElement("p");
-    checkSec.setAttribute("class", "modal-text");
+    checkSec.setAttribute("id", "check-sec");
     
     if (read.checked) {
         checkSec.textContent = 'Yes';
@@ -101,12 +100,12 @@ function addBook() {
     let btnDiv = document.createElement("div");
     btnDiv.setAttribute("class", "btn-div");
 
-    let markRead = document.createElement("button");
+    const markRead = document.createElement("button");
     markRead.setAttribute("id", "marked");
     markRead.textContent = 'Read';
     btnDiv.appendChild(markRead);
 
-    let remove = document.createElement("button");
+    const remove = document.createElement("button");
     remove.setAttribute("id", "remove");
     remove.textContent = 'Remove';
     btnDiv.appendChild(remove);
@@ -115,5 +114,17 @@ function addBook() {
     card.appendChild(btnDiv);
 
     myLibrary.push(newBook);
+
+    let check = document.getElementById("check-sec");
+
+    markRead.addEventListener("click", () => {
+        check.textContent = 'Yes';
+    });
+
+    remove.addEventListener("click", () => {
+        myLibrary.splice(-1);
+        library.removeChild(library.lastChild);
+    });
+
 };
 
