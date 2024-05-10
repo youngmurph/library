@@ -103,11 +103,20 @@ dialog {
     background-color: whitesmoke;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.remove + .markRead {
+.modal-details {
+    font-family: 'source_sans_3extralight';
+    padding: 2px;
+    padding-top: 30px;
+    padding-right: 100px;
+    line-height: 1.5rem;
+}
+
+.btnDiv {
     margin-bottom: 10px;
 }
 
